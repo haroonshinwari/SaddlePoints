@@ -1,10 +1,11 @@
 package saddlePoints;
+import java.util.random
 
 /**
  * Creates a number of random arrays, and checks each array to see
  * if it contains a saddle point. Prints the arrays and the results.
  *
- * @author PUT YOUR NAME HERE
+ * @Haroon Shinwari
  */
 public class SaddlePoints {
     /**
@@ -23,6 +24,7 @@ public class SaddlePoints {
      * @param array The array to be printed.
      */
     void printArray(int[][] array) {
+        System.out.println(array)
 
     }
 
