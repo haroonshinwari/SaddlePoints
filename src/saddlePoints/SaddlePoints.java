@@ -15,8 +15,19 @@ public class SaddlePoints {
      * one without a saddle point.
      */
     void run() {
-
+        int numberOfRows = randomNumGenColxRow();
+        int numberOfColumns = randomNumGenColxRow();
+        int minValue = -20;
+        int maxValue = 20;
+        createRandomArray(numberOfRows, numberOfColumns, minValue, maxValue);
     }
+
+    void randomNumGenColxRow() {
+        Random rand = new Random();
+        randomNum = 2 + rand.nextInt((5 - 2) + 1);
+        return randomNum
+    }
+
 
     /**
      * Prints the array.
@@ -42,15 +53,19 @@ public class SaddlePoints {
      * Creates and returns an array of the given size and fills it with random
      * values in the specified range.
      *
-     * @param numberOfRows    The number of rows desired.
-     * @param numberOfColumns The number of columns desired.
-     * @param minValue        The smallest number allowable in the array.
-     * @param maxValue        The largest number allowable in the array.
+     * @param numberOfRows    The number of rows desired.  [random range 2 to 5]
+     * @param numberOfColumns The number of columns desired.[random range 2 to 5]
+     * @param minValue        The smallest number allowable in the array. [random range -20 to 20]
+     * @param maxValue        The largest number allowable in the array.  [random range -20 to 20]
      * @return
      */
-    int[][] createRandomArray(int numberOfRows, int numberOfColumns, int minValue, int maxValue) {
+    int[][] createRandomArray(int numberOfRows, int numberOfColumns, int minValue, int maxValue)
+    {
+        int [][] randomArray = new int[numberOfRows][numberOfColumns]
+
         return null;
     }
+
 
     /**
      * Finds the largest value in an array of integers.
