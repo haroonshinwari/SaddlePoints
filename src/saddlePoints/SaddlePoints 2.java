@@ -1,12 +1,13 @@
 package saddlePoints;
+import java.util.random
 
 /**
  * Creates a number of random arrays, and checks each array to see
  * if it contains a saddle point. Prints the arrays and the results.
  *
- * @author PUT YOUR NAME HERE
+ * @Haroon Shinwari
  */
-public class SaddlePoints {
+public class SaddlePoints2 {
     /**
      * Creates arrays various sizes (including some 2x2 arrays and some larger),
      * fills them with random values, and prints each array and information about
@@ -14,8 +15,20 @@ public class SaddlePoints {
      * one without a saddle point.
      */
     void run() {
-
+        int numberOfRows = randomNumGenColxRow();
+        int numberOfColumns = randomNumGenColxRow();
+        int minValue = -20;
+        int maxValue = 20;
+        randomArray [][] = createRandomArray(numberOfRows, numberOfColumns, minValue, maxValue);
+        printArray(randomArray);
     }
+
+    void randomNumGenColxRow() {
+        Random randomNum = new Random();
+        randomNum = 2 + randomNum.nextInt((5 - 2) + 1);
+        return randomNum
+    }
+
 
     /**
      * Prints the array.
@@ -23,6 +36,7 @@ public class SaddlePoints {
      * @param array The array to be printed.
      */
     void printArray(int[][] array) {
+        System.out.println(array)
 
     }
 
@@ -40,14 +54,27 @@ public class SaddlePoints {
      * Creates and returns an array of the given size and fills it with random
      * values in the specified range.
      *
-     * @param numberOfRows    The number of rows desired.
-     * @param numberOfColumns The number of columns desired.
-     * @param minValue        The smallest number allowable in the array.
-     * @param maxValue        The largest number allowable in the array.
+     * @param numberOfRows    The number of rows desired.  [random range 2 to 5]
+     * @param numberOfColumns The number of columns desired.[random range 2 to 5]
+     * @param minValue        The smallest number allowable in the array. [random range -20 to 20]
+     * @param maxValue        The largest number allowable in the array.  [random range -20 to 20]
      * @return
      */
-    int[][] createRandomArray(int numberOfRows, int numberOfColumns, int minValue, int maxValue) {
-        return null;
+    int[][] createRandomArray(int numberOfRows, int numberOfColumns, int minValue, int maxValue)
+    {
+        int [][] randomArray = new int[numberOfRows][numberOfColumns];
+        for (int i = 0; i < randomArray.length; i++) {
+            for (int j = 0; j < randomArray[i].length; j++) {
+                randomArray[i][j] = randomArrayFill(minValue, maxValue);
+            }
+        }
+        return randomArray;
+    }
+
+    void randomArrayFill(int minValue, int maxValue) {
+        Random randomNum = new Random();
+        randomNum = minValue + randomNum.nextInt((maxValue - minValue) + 1);
+        return randomNum
     }
 
     /**
