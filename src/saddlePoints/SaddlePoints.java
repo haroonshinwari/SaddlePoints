@@ -24,7 +24,7 @@ public class Demo {
         while (trueCount == 0 || falseCount == 0){
             int numberOfRows = randomNumGenColxRow();
             int numberOfColumns = randomNumGenColxRow();
-            int minValue = -5;
+            int minValue = -5;         //range for the values inside the random array
             int maxValue = 5;
             int randomArray [][]  = createRandomArray(numberOfRows, numberOfColumns, minValue, maxValue);
             printTwoDArray(randomArray);
@@ -44,6 +44,8 @@ public class Demo {
         }
     }
 
+    // The following method generates a random number for a specified range (2 to 5)
+    // in which the random arrays will consist of
 
     int randomNumGenColxRow() {
         Random randomNum = new Random();
@@ -56,11 +58,12 @@ public class Demo {
      * Prints the array.
      *
      * @param array The array to be printed.
+     *prints two dimensional arrays
      */
     void printTwoDArray(int[][] array) {
         System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
     }
-
+    // prints one dimensional arrays
     void printArray(int[] array) {
         System.out.println(Arrays.toString(array));
     }
@@ -87,6 +90,7 @@ public class Demo {
         return randomArray;
     }
 
+    // this method generates random numbers which will be used to fill up an array
     int randomArrayFill(int minValue, int maxValue) {
         Random randomNum = new Random();
         int randomNumber = minValue + randomNum.nextInt((maxValue - minValue) + 1);
@@ -113,7 +117,12 @@ public class Demo {
         }
         return largestColArray;
     }
-
+    /**
+     * Returns an array containing the smallest values in each rpw of the given array.
+     *
+     * @param array The array to be searched.
+     * @return An array of the smallest values in each row.
+     */
     int[] smallestValues(int[][] array) {
         int [] smallestRowArray = new int[array.length];
         int min = Integer.MAX_VALUE;
@@ -128,7 +137,12 @@ public class Demo {
         }
         return smallestRowArray;
     }
-
+    /**
+     * Finds the largest value in an array of integers.
+     *
+     * @param array The array to be searched.
+     * @return The largest value in the array.
+     */
     int largest(int[] array) {
         int max = Integer.MIN_VALUE;
         for (int i = 0;i<array.length;i++){
@@ -140,6 +154,12 @@ public class Demo {
         return max;
     }
 
+    /**
+     * Finds the smallest value in an array of integers.
+     *
+     * @param array The array to be searched.
+     * @return The smallest value in the array.
+     */
     int smallest(int[] array) {
         int min = Integer.MAX_VALUE;
         for (int i = 0;i<array.length;i++){
@@ -150,7 +170,12 @@ public class Demo {
         }
         return min;
     }
-
+    /**
+     * Returns true if the given array has a saddle point, and false if it does not.
+     *
+     * @param array The array to be checked.
+     * @return True if the array has a saddle point, else false.
+     */
     boolean hasSaddlePoint(int[][] array){
         int largeArray [] = largestValues(array);
         int smallArray [] = smallestValues(array);
@@ -161,7 +186,14 @@ public class Demo {
         }
         return false;
     }
-
+    /**
+     * Given an array that is known to have a saddle point, returns the number of a
+     * row containing a saddle point. If more than one row contains a saddle point,
+     * the first such row will be returned.
+     *
+     * @param array An array containing one or more saddle points.
+     * @return The lowest-numbered row containing a saddle point.
+     */
     int saddlePointRow(int[][] array){
         int sadPointRow = 0;
         int smallArray [] = smallestValues(array);
@@ -174,6 +206,14 @@ public class Demo {
         }
         return sadPointRow;
     }
+    /**
+     * Given an array that is known to have a saddle point, returns the number of a
+     * column containing a saddle point. If more than one column contains a saddle point,
+     * the first such column will be returned.
+     *
+     * @param array An array containing one or more saddle points.
+     * @return The lowest-numbered column containing a saddle point.
+     */
 
     int saddlePointColumn(int[][] array){
         int sadPointCol = 0;

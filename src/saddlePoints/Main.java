@@ -3,7 +3,7 @@ package saddlePoints;
 import saddlePoints.SaddlePoints;
 
 /**
- * @author KLM
+ * @author Haroon Shinwari
  */
 public class Main {
     /**
